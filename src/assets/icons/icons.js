@@ -1,6 +1,6 @@
 const Images = {
   box: {
-    active: require('./checkbox_unchecked_active.png'),
+    active: require('./checkbox_checked_active.png'),
     inactive: require('./checkbox_unchecked_inactive.png'),
   },
   trash: {

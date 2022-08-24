@@ -15,9 +15,10 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 16,
     alignItems: 'center',
-    backgroundColor: '#0d0d0d',
+    backgroundColor: '#0D0D0D',
     justifyContent: 'center',
     // paddingHorizontal: ,
     height: 173,
+    width: '100%',
   },
 });

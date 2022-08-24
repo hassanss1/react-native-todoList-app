@@ -10,8 +10,10 @@ import {
 } from 'react-native';
 
 export function InputField() {
+  const [state, setState] = useState({ isFocused: false });
   const [incompletedTasks, setIncompletedTasks] = useState<string[]>([]);
   const [input, setInput] = useState('');
+
   const _formatInput = function (text: string) {
     // This throws text to state of task
     // text.split(' ').map((word) => {
@@ -23,15 +25,31 @@ export function InputField() {
     setIncompletedTasks((prevState) => [...prevState, input]);
     setInput('');
   };
+  const handleFocus = function () {
+    state.isFocused = true;
+    setState(state);
+  };
+  const handleBlur = function () {
+    state.isFocused = false;
+    setState(state);
+  };
   <View style={styles.inputContainer}>
     <TextInput
-      style={styles.input}
+      style={[
+        styles.input,
+        {
+          borderColor: state.isFocused ? `#5E60CE` : `#0D0D0D`,
+          borderWidth: 1,
+        },
+      ]}
       placeholder='Add a new task'
       placeholderTextColor='#808080'
       returnKeyType='send'
       keyboardType='default'
       value={input}
       onChangeText={_formatInput}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     ></TextInput>
     <TouchableOpacity
       style={styles.addButton}
@@ -48,7 +66,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#262626',
     borderRadius: 6,
-    borderColor: '#0D0D0D',
     borderWidth: 1,
     color: '#F2F2F2',
   },

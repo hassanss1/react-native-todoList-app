@@ -3,13 +3,13 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: '#1A1A1A',
     width: '100%',
     alignItems: 'center',
   },
   innerContainer: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: `#1A1A1A`,
     width: '88%',
     alignItems: 'center',
   },
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
   emptyMessageContainer: {
     alignItems: 'center',
     borderTopColor: '#333333',
-    borderWidth: 1,
+    borderTopWidth: 1,
     paddingVertical: 48,
     paddingHorizontal: 20,
     justifyContent: 'center',
@@ -82,6 +82,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     height: 19,
+    backgroundColor: `#1A1A1A`,
   },
   incompletedTaskText: {
     fontWeight: 'bold',
@@ -106,4 +107,7 @@ export const styles = StyleSheet.create({
     // paddingHorizontal: 8,
     // marginLeft: 8,
   },
+  // taskList: {
+  //   backgroundColor:
+  // }
 });

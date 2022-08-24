@@ -10,30 +10,28 @@ type Props = {
 };
 
 export function Task({ onRemove, onComplete, definition, status }: Props) {
-  const [taskStatus, setTaskStatus] = useState(false);
-  // setTaskStatus(false);
-
   return (
     <>
       <View style={styles.taskContainer}>
         {/* checkbox: touchableOpacity w/ Image */}
         <TouchableOpacity onPress={onComplete} style={styles.taskCheck}>
-          {!taskStatus && <Image source={Images.box.inactive} />}
-          {taskStatus && <Image source={Images.box.active} />}
+          {!status && <Image source={Images.box.inactive} />}
+          {status && <Image source={Images.box.active} />}
         </TouchableOpacity>
         {/* taskName: String */}
         <Text style={styles.taskText}>
-          {taskStatus
+          {status
             ? definition
                 .split('')
                 .map((char: string) => char + '\u0336')
                 .join('')
             : definition}
+          {status}
         </Text>
         {/* trashIcon: touchableOpacity w/ Image */}
         <TouchableOpacity onPress={onRemove} style={styles.taskDelete}>
-          {!taskStatus && <Image source={Images.trash.inactive} />}
-          {taskStatus && <Image source={Images.trash.active} />}
+          {!status && <Image source={Images.trash.inactive} />}
+          {status && <Image source={Images.trash.inactive} />}
         </TouchableOpacity>
       </View>
     </>
